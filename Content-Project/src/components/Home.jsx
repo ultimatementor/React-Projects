@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { addToPastes, updatePastes } from "../redux/pasteSlice";
@@ -10,14 +10,15 @@ const Home = () => {
   const pasteId = searchParams.get("pasteId"); // Get pasteId from the search params
   const pastes = useSelector((state) => state.paste.pastes);
   const dispatch = useDispatch();
-  const id = useId();
 
   const createPaste = () => {
     const paste = {
       title: title,
       value: value,
-      _id: pasteId || id,
-      createdAt: Date.now().toLocaleString("2016-01-04 10:34:23"),
+      _id:
+        pasteId ||
+        Date.now().toString(36) + Math.random().toString(36).substring(2),
+      createdAt: new Date().toISOString(),
     };
 
     if (pasteId) {
