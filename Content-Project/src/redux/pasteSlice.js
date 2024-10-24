@@ -45,7 +45,6 @@ const pasteSlice = createSlice({
     removeFromPastes: (state, action) => {
       const pasteId = action.payload;
 
-      console.log(pasteId);
       const index = state.pastes.findIndex((item) => item._id === pasteId);
 
       if (index >= 0) {

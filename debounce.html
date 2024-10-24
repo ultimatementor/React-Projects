@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call, Bind, Apply</title>
+  </head>
+  <body>
+    <script>
+      // Debounce function
+      function debounce(func, delay) {
+        let timeout;
+        return () => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            // func.apply(null, args); // Call the original function after delay
+            func();
+          }, delay);
+        };
+      }
+
+      // Function to simulate fetching products
+      function fetchProducts() {
+        console.log("Fetch Products");
+      }
+
+      // Create debounced version of the fetchProducts function
+      const debouncedFetchProducts = debounce(fetchProducts, 300);
+
+      // Simulate calling the debounced function
+      debouncedFetchProducts(); // This will be delayed by 300ms
+
+      // Call the function multiple times quickly to see how debouncing works
+      setTimeout(() => debouncedFetchProducts(), 500); // Called at 500ms
+    </script>
+  </body>
+</html>

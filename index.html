@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call, Bind, Apply</title>
+  </head>
+  <body>
+    <script>
+      function setUsername(username) {
+        // this.username = username;
+        console.log(username);
+      }
+
+      function createUsers(username, email, password) {
+        setUsername.call(this, username);
+        console.log(username);
+        this.password = password;
+        this.email = email;
+      }
+
+      let user1 = new createUsers(
+        "Ali Haider",
+        "alidevofficial@gmail.com",
+        "123"
+      );
+
+      let user2 = new createUsers("Ahmad", "ahmdwrk786@gmail.com", "123");
+
+      // setUsername.call(user1, "Ali Haider");
+      // console.log(user1.username);
+    </script>
+  </body>
+</html>

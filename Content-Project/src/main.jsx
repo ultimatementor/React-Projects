@@ -10,7 +10,7 @@ import ViewPastes from "./components/ViewPastes.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
-import Contact from "./../../ReactRounting/src/components/Contact";
+import Contact from "./components/Contact.jsx";
 
 const router = createBrowserRouter([
   {
